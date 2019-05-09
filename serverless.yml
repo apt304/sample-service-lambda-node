@@ -1,0 +1,13 @@
+service: sample-service-lambda-node
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  server:
+    handler: server.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
